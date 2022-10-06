@@ -33,26 +33,22 @@ else:
         with open('new_mnogo4.txt', 'a') as new:
             new.write(f'{c}\n')
 
+#--------------------------------------------------------------
+# _________________ОПТИМИЗАЦИЯ_________________________________
+# -------------------------------------------------------------
 
+with open('mnogo.txt') as xyz, open('mnogo2.txt') as xyz2:
+    aw = sum(1 for line in xyz)
+    wa = sum(1 for lne in xyz2)
+if aw != wa:
+    print("The contents of the files do not match!")
+else:
+    i = 0
+    xyz.seek(0)
+    xyz2.seek(0)
 
-
-
-
-
-# min_num = min(aw,wa)
-# print(min_num)
-
-# with open('mnogo.txt','r') as xyz:
-# a = xyz.readlines()[1].strip()
-# with open('mnogo2.txt','r') as xyz2:
-# b = xyz2.readlines()
-
-
-# print(a+a)
-
-# a = a.replace("= 0",'+ ')
-# c = a + b
-# with open('new.txt','a') as new:
-#     new.write(f'{c}\n')
-
-
+    for i in range(aw):
+        a = xyz.readline().replace("= 0\n", '+ ')
+        b = xyz2.readline().strip()
+        with open('new_mnogo4.txt', 'a') as new:
+            new.write(f'{a + b}\n')
